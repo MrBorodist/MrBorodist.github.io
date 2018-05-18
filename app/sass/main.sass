@@ -1,0 +1,640 @@
+@import variables
+
+*
+  margin: 0
+  padding: 0
+
+html
+  font-size: 75%
+  @media only screen and (max-width: 1089px)
+    font-size: 70%
+
+body
+  font: normal 1em/1.3 $main-family, sans-serif
+
+html, body
+  color: $main-color
+  font:
+    family: $main-family
+
+html,
+body,
+.wrapper
+  height: 100%
+  min-height: 640px
+  min-width: 340px
+
+.wrapper
+  display: flex
+  flex-direction: column
+
+.warp
+  min-height: calc(100% - (100% - 130px))
+
+main
+  min-height: calc(100% - (100% - (100% - 130px)))
+
+ul
+  li
+    a
+      color: $main-color
+      text-transform: uppercase
+      &:hover,
+      &.selected
+        color: $hover-color
+    &.active
+      a
+        color: $hover-color
+
+ul
+	list-style-type: none
+
+li
+  a
+    text-decoration: none
+
+// Style for header
+header
+  background-color: $menu-back-color
+  .fb
+    max-width: 1200px
+    margin: 0 auto
+    display: grid
+    grid-template: repeat(2, 65px) / repeat(3, 1fr)
+    div.main-logo
+      grid-area: 1 / 1 / 3 / 2
+      img
+        padding: 24px 0 23px 0
+    @media only screen and (max-width: 1300px)
+      margin: 0 1.6%
+
+    div.right-top
+      display: inline-flex
+      grid-area: 1 / 2 / 2 / 4
+      justify-self: end
+      font:
+        size: 1.17em
+        weight: 300
+      line-height: 15.5px
+      margin-top: 5px
+      text-transform: uppercase
+      .disc
+        padding-right: 13px
+    #navigation
+      grid-area: 2 / 2 / 3 / span 2
+      justify-self: end
+      align-self: end
+      color: $main-color
+      font:
+        size: 1.5em
+        weight: 300
+      line-height: 14px
+      text-transform: uppercase
+      .burger
+        display: none
+        width: 40px
+        height: 30px
+        position: relative
+        cursor: pointer
+        margin-bottom: 10px
+        @media only screen and (max-width: 550px)
+          display: inline-block
+        span
+          display: block
+          position: absolute
+          height: 3px
+          width: 100%
+          background: $main-color
+          border-radius: 9px
+          left: 0
+          transform: rotate(0deg)
+          transition: 0.25s ease-in-out
+          &:nth-child(1)
+            top: 0
+          &:nth-child(2), &:nth-child(3)
+            top: 13px
+          &:nth-child(4)
+            top: 26px
+      ul#nav
+        display: flex
+        li
+          position: relative
+          height: 38px
+          padding-right: 27px
+          z-index: 9
+          @media only screen and (max-width: 550px)
+            border-bottom: 1px solid $main-color
+            height: 25px
+            padding-top: 10px
+            &:first-child
+              padding-top: 0
+            &:last-child
+              border-bottom: none
+          ul
+            display: none
+            position: absolute
+            top: 38px
+            right: -32px
+            width: 132px
+            height: 123px
+            padding: 9px 8px 0 8px
+            @media only screen and (max-width: 550px)
+              width: 110px
+            font:
+              size: 0.89em
+              weight: 300
+            line-height: 16px
+            background: $menu-back-color
+            z-index: 9
+            @media only screen and (max-width: 550px)
+              top: -2px
+              left: -127px
+            &.collezioni
+              right: 0
+            &.contatti
+              right: -12px
+              @media only screen and (min-width: 1300px)
+                right: -35px
+              @media only screen and (max-width: 736px)
+                right: -9px
+            li
+              border-bottom: 1px solid white
+              height: 29px
+              box-sizing: border-box
+              color: $main-color
+              padding-top: 5px
+              &:first-child
+                font:
+                  size: 1em
+                  weight: 300
+                padding-left: 1px
+              &:nth-child(2)
+                letter-spacing: -0.005em
+              &:last-child
+                border: none
+              a
+                margin-left: 7px
+                display: block
+                &:hover
+                  color: $hover-color
+                  font-weight: 400
+          a
+            display: block
+          &:first-child
+            padding-right: 28px
+            font:
+              size: 1em
+              weight: 700
+          &:last-child
+            padding-right: 0
+        @media only screen and (max-width: 550px)
+          position: absolute
+          display: block
+          top: 0
+          right: 0
+          z-index: 9
+          visibility: hidden
+          opacity: 0
+          padding: 10px
+          background-color: $menu-back-color
+          margin-top: 130px
+          transition: all 0.25s ease-in-out
+          li
+            padding-right: 0
+
+
+#navigation.menu-open
+  ul#nav
+    visibility: visible !important
+    opacity: 1 !important
+  .burger
+    span
+      &:nth-child(1)
+        top: 18px
+        width: 0%
+        left: 50%
+      &:nth-child(2)
+        transform: rotate(45deg)
+      &:nth-child(3)
+        transform: rotate(-45deg)
+      &:nth-child(4)
+        top: 18px
+        width: 0%
+        left: 50%
+
+
+
+
+// Style for "BOX"
+
+main.right-sidebar
+  position: relative
+
+.back-img
+  display: block
+  position: absolute
+  top: 0
+  z-index: 0
+  width: 100%
+  height: 100%
+  background:
+    image: url('../img/background.png')
+    repeat: no-repeat
+    size: cover
+    position: center
+  overflow: hidden
+
+main
+  section
+    div.box
+      display: none
+      position: absolute
+      right: 0
+      top: calc(50% - 69px)
+      z-index: 1
+      width: 509px
+      opacity: 0.85
+      background-color: $main-color
+      h1.heading
+        width: 460px
+        color: #020202
+        font:
+          family: $heading-family
+          size: 2.5em
+          weight: 600
+          style: italic
+        line-height:  26px
+        letter-spacing: -0.004em
+        opacity: 1
+        margin:
+          top: 18px
+          left: 27px
+          bottom: 2px
+        text-transform: uppercase
+      div.block
+        width: 460px
+        color: #000
+        font-size: 1.5em
+        font-weight: 400
+        line-height: $main-line-height
+        letter-spacing: -0.008em
+        opacity: 1
+        margin:
+          left: 30px
+          top: 25px
+          bottom: 21px
+
+@media only screen and (max-width: 550px)
+  main
+    section
+      div.box
+        width: 340px
+        top: 25%
+        h1.heading
+          width: 330px
+          margin-left: 10px
+        div.block
+          width: 330px
+          margin-top: 10px
+          margin-left: 10px
+
+
+
+// Style for pop-up-menu
+.circle
+  height: 14px
+  width: 84px
+  margin: 0 auto
+  padding-bottom: 11px
+  cursor: pointer
+  span
+    display: inline-block
+    width: 11px
+    height: 11px
+    border: 1.5px solid #000
+    border-radius: 100%
+    background: $main-color
+    &:nth-child(2)
+      background: $hover-color
+      margin: 0 7px
+#open-key
+  width: 84px
+  height: 28px
+  padding: 0
+  border: none
+  outline: none
+  cursor: pointer
+  background-color: $main-color
+  margin: 0 auto
+  div.vector
+    background-image: url('../img/vector.png')
+    width: 100%
+    height: 100%
+    background:
+      repeat: no-repeat
+      position: center
+    transition: transform 0.4s ease
+
+div#pop-up-box
+  display: grid
+  width: 96.8%
+  grid-template: minmax(53px) 1fr / repeat(3, 1fr)
+  position: absolute
+  bottom: 0
+  z-index: 1
+  text-align: center
+  margin: 0 1.6%
+  .click-area
+    grid-area: 1 / 2 / 2 / 3
+    line-height: 0
+  div.bottom-aside
+    display: flex
+    flex-direction: row
+    grid-area: 2 / 1 / 3 / 4
+    max-width: 1200px
+    margin: 0 auto
+    @media only screen and (max-width: 690px)
+      flex-direction: column
+  article
+    display: none
+    color: #000
+    text-align: left
+    position: relative
+    height: 175px
+    margin: 0 auto
+    .pop-up-box-headding
+      font:
+        family: $heading-family
+        size: 2.34em
+        weight: 600
+      padding: 18px 16px 8px 16px
+      line-height: 1.1em
+    .pop-up-box-paragraph
+      font:
+        size: 1.33em
+        weight: 400
+      line-height: 1.5em
+      padding: 0 16px 8px 16px
+      @media only screen and (max-width: 730px)
+        font-size: 1.25em
+    .pop-up-box-next
+      font:
+        size: 1.5em
+        weight: 400
+      text-align: right
+      padding-right: 23px
+      padding-bottom: 11px
+      a
+        text-decoration: none
+        color: $main-color
+        &:hover
+          text-decoration: underline
+    &:nth-child(1)
+      background: $hover-color
+    &:nth-child(2)
+      background: $main-color
+      .pop-up-box-next
+        a
+          color: #000
+    &:nth-child(3)
+      background: #000
+      color: $main-color
+      .pop-up-box-headding
+        padding-bottom: 38px
+        @media only screen and (max-width: 1159px)
+          padding-bottom: 8px
+      a
+        color: $main-color
+    @media only screen and (max-width: 1170px)
+      height: 197px
+    @media only screen and (max-width: 777px)
+      height: 216px
+      &:nth-child(1), &:nth-child(3)
+        .pop-up-box-headding
+          padding-bottom: 36px
+    @media only screen and (max-width: 773px)
+      height: 238px
+    @media only screen and (max-width: 699px)
+      &:nth-child(1)
+        .pop-up-box-headding
+          padding-bottom: 8px
+    @media only screen and (max-width: 693px)
+      &:nth-child(3)
+        .pop-up-box-headding
+          padding-bottom: 8px
+    @media only screen and (max-width: 690px)
+      height: auto
+
+.rotate
+  transform: rotateX(-180deg)
+.hide
+  display: none
+
+// Style for "FOOTER"
+footer
+  background-color: $menu-back-color
+  .fr
+    display: grid
+    grid-template: 1fr minmax(20px, auto) / 1fr repeat(4, 3fr) 1fr
+    grid-gap: 20px 24px
+    max-width: 1250px
+    margin: 31px 2em 20px 2em
+    position: relative
+    @media only screen and (min-width: 1315px)
+      margin: 31px auto 20px auto
+    @media only screen and (max-width: 1095px)
+      grid-gap: 12px
+    @media only screen and (max-width: 690px)
+      grid-template: repeat(3, 1fr) minmax(20px, auto) / repeat(4, 1fr) repeat(2, 60px)
+      grid-gap: 12px
+    @media only screen and (max-width: 380px)
+      grid-template: 2fr repeat(2, 1fr) minmax(20px, auto) / repeat(4, 1fr) repeat(2, 60px)
+      grid-gap: 12px
+
+
+
+    a
+      color: $main-color
+      text-decoration: none
+      &:hover
+        color: $hover-color-footer
+    section
+      max-width: 190px
+      justify-self: center
+      @media only screen and (max-width: 690px)
+        max-width: 100%
+      font:
+        size: 1em
+        weight: 300
+      &:first-child
+        grid-area: 1 / 2 / 2 / 3
+        @media only screen and (max-width: 690px)
+          grid-area: 1 / 1 / 2 / 5
+      &:nth-child(2)
+        grid-area: 1 / 3 / 2 / 4
+        @media only screen and (max-width: 690px)
+          grid-area: 2 / 1 / 3 / 5
+        @media only screen and (max-width: 380px)
+          grid-area: 2 / 1 / 3 / 7
+      &:nth-child(3)
+        grid-area: 1 / 4 / 2 / 5
+        @media only screen and (max-width: 690px)
+          grid-area: 3 / 1 / 4 / 5
+        @media only screen and (max-width: 380px)
+          grid-area: 3 / 1 / 4 / 7
+      &:nth-child(4)
+        grid-area: 1 / 5 / 2 / 6
+        justify-self: start
+        @media only screen and (max-width: 690px)
+          grid-area: 1 / 5 / 3 / 7
+          min-width: 100px
+
+      h3.footer-head
+        color: $main-color
+        font:
+          family: $heading-family
+          size: 1.16em
+          weight: 700
+        line-height: $main-line-height
+        padding-bottom: 18px
+        text-transform: uppercase
+        @media only screen and (max-width: 690px)
+          padding-bottom: 5px
+      div.footer-paragraph
+        line-height: 1.49em
+
+div.contacts
+  grid-area: 2 / 1 / 3 / 5
+  align-self: center
+  @media only screen and (max-width: 690px)
+    grid-area: 4 / 1 / 5 / 5
+  address
+    color: $main-color
+    font:
+      size: 1em
+      weight: 300
+      style: normal
+    line-height: $main-line-height
+    @media only screen and (max-width: 690px)
+      line-height: 1.5em
+    span, a
+      margin-right: 14px
+      @media only screen and (max-width: 1037px)
+        margin-right: 4px
+
+div.social
+  grid-area: 2 / 5 / 3 / 6
+  justify-self: start
+  align-self: start
+  @media only screen and (max-width: 690px)
+    align-self: end
+    grid-area: 3 / 5 / 4 / 7
+  @media only screen and (max-width: 380px)
+    align-self: start
+    grid-area: 4 / 5 / 5 / 7
+  a
+    padding-left: 7px
+    &:first-child
+      padding-left: 0
+
+
+div.language
+  grid-area: 2 / 5 / 3 / 7
+  justify-self: end
+  align-self: end
+  color: $main-color
+  font:
+    size: 1.17em
+    weight: 300
+  line-height: 22px
+  text-transform: uppercase
+  br#hide
+    display: none
+  @media only screen and (max-width: 690px)
+    grid-area: 4 / 5 / 5 / 7
+  @media only screen and (max-width: 554px)
+    br#hide
+      display: block
+  a
+    display: inline
+    @media only screen and (max-width: 554px)
+      &:nth-child(2)
+        &:after
+          content: ''
+    &:after
+      padding: 0 8px
+      content: '|'
+      color: $main-color
+      @media only screen and (max-width: 1089px)
+        padding: 0 4px
+
+    &:last-child
+      &:after
+        content: ''
+
+
+input[type="text"],
+input[type="email"]
+  width: 179px
+  color: #8c8c8c
+  font:
+    family: $main-family
+    size: 1.17em
+    weight: 300
+  line-height: $other-line-height
+  outline: none
+  border: none
+  padding-left: 5px
+  background-color: $main-color
+  @media only screen and (max-width: 1014px)
+    width: 96%
+  &:first-child
+    margin-bottom: 12px
+    padding-top: 9px
+    padding-bottom: 6px
+  &:nth-child(2)
+    margin-bottom: 2px
+    padding-top: 8px
+    padding-bottom: 7px
+
+
+.checkbox
+  color: #b5b4b4
+  font:
+    size: 0.84em
+    weight: 400
+  line-height: 1
+  letter-spacing: -0.00005em
+
+#checkbox
+  margin-bottom: 6px
+
+input[type="checkbox"]
+  width: 9px
+  height: 9px
+  outline: none
+  border: none
+  margin:
+    top: 8px
+    right: 7px
+  background-color: $main-color
+
+input[type="submit"]
+  width: 184px
+  height: 32px
+  color: $main-color
+  font:
+    family: $main-family
+    size: 1.47em
+    weight: 300
+  line-height: $main-line-height
+  outline: none
+  border: none
+  text-transform: uppercase
+  background-color: #000
+  padding: 0
+  padding-bottom: 2px
+  @media only screen and (max-width: 1014px)
+    width: 100%
+  &:hover
+    background-color: #e2d1a6
