@@ -1,5 +1,11 @@
 ﻿[открыть макет сайта](https://mrborodist.github.io/app/)
 ------
+
+
+### preview
+![Completion search demo](app/img/preview.gif)
+
+
 **Стек технологий:**
 SASS 4.0.1, jQuery 3.3.1, gulp 3.9.1
 
